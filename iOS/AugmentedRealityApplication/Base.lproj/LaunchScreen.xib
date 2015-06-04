@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MM_640x1136.png" translatesAutoresizingMaskIntoConstraints="NO" id="f6D-zq-gOi">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="f6D-zq-gOi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3rE-3g-46l"/>
+                <constraint firstItem="f6D-zq-gOi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3xi-tN-EiN"/>
+                <constraint firstItem="f6D-zq-gOi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5I4-zE-jG4"/>
+                <constraint firstAttribute="bottom" secondItem="f6D-zq-gOi" secondAttribute="bottom" id="Bc4-80-ups"/>
+                <constraint firstAttribute="trailing" secondItem="f6D-zq-gOi" secondAttribute="trailing" id="Gxr-R8-9Nz"/>
+                <constraint firstAttribute="bottom" secondItem="f6D-zq-gOi" secondAttribute="bottom" id="UXP-CO-Xfe"/>
+                <constraint firstAttribute="trailing" secondItem="f6D-zq-gOi" secondAttribute="trailing" id="Zyu-dV-YJQ"/>
+                <constraint firstAttribute="bottom" secondItem="f6D-zq-gOi" secondAttribute="bottom" id="cXl-Ux-N25"/>
+                <constraint firstItem="f6D-zq-gOi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="drv-U4-uMP"/>
+                <constraint firstAttribute="trailing" secondItem="f6D-zq-gOi" secondAttribute="trailing" id="hHc-pc-adJ"/>
+                <constraint firstItem="f6D-zq-gOi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="lri-X2-08s"/>
+                <constraint firstItem="f6D-zq-gOi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xX0-8a-FV5"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="3xi-tN-EiN"/>
+                    <exclude reference="5I4-zE-jG4"/>
+                    <exclude reference="Bc4-80-ups"/>
+                    <exclude reference="Gxr-R8-9Nz"/>
+                    <exclude reference="UXP-CO-Xfe"/>
+                    <exclude reference="Zyu-dV-YJQ"/>
+                    <exclude reference="lri-X2-08s"/>
+                    <exclude reference="xX0-8a-FV5"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="constraints">
+                    <include reference="UXP-CO-Xfe"/>
+                    <include reference="Zyu-dV-YJQ"/>
+                    <include reference="lri-X2-08s"/>
+                    <include reference="xX0-8a-FV5"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="f6D-zq-gOi"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="3xi-tN-EiN"/>
+                    <include reference="5I4-zE-jG4"/>
+                    <include reference="Bc4-80-ups"/>
+                    <include reference="Gxr-R8-9Nz"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="548" y="455"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="MM_640x1136.png" width="640" height="1136"/>
+    </resources>
+</document>
