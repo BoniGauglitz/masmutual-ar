@@ -44,7 +44,7 @@ var World = {
                     if(videoIsPlaying){
                        video.pause();
                     }
-                    AR.context.openInBrowser("https://www.massmutual.com/connect-with-us/financial-professionals");
+                    AR.context.openInBrowser("https://www.massmutual.com/es/latino/connect-with-us/financial-professionals");
              }
         });
         
@@ -56,7 +56,7 @@ var World = {
                 • if it's not, play video in place over image target and update flag
             When MM_ARCouple leaves field of vision
             • pause video      */
-        var inPlaceFamilyTracker = new AR.Trackable2DObject(this.tracker, "MM_ARC*", {
+        var inPlaceFamilyTracker = new AR.Trackable2DObject(this.tracker, "AR_MMS*", {
             drawables: { cam: video },
             onEnterFieldOfVision: function onEnterFieldOfVisionFn() {
                   if(!videoIsPlaying){
