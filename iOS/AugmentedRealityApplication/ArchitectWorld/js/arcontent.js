@@ -16,6 +16,47 @@ var World = {
 		var video = new AR.VideoDrawable("assets/family.m4v", 1.0, { offsetX: -.1, });
         var videoIsPlaying=false;
         
+        // Create play button which is used for starting the video
+        var playButtonImg = new AR.ImageResource("assets/playButton.png");
+        var playButton = new AR.ImageDrawable(playButtonImg, 0.3, {
+                  enabled: false,
+                  clicked: false,
+                  onClick: function playButtonClicked() {
+                              videoWithButton.play(1);
+                              videoWithButton.playing = true;
+                              playButton.clicked = true;
+                 },
+                 offsetY: 0
+        });
+        // create video drawable object with play button
+        var videoWithButton = new AR.VideoDrawable("assets/family.m4v", 1.0, {
+                 offsetY: -.01,
+                 onLoaded: function videoLoaded() {
+                               playButton.enabled = true;
+                 },
+                 onPlaybackStarted: function videoPlaying() {
+                                playButton.enabled = false;
+                                videoWithButton.enabled = true;
+                 },
+                 onFinishedPlaying: function videoFinished() {
+                                 playButton.enabled = true;
+                                 videoWithButton.playing = false;
+                                 videoWithButton.enabled = false;
+                 },
+                 onClick: function videoClicked() {
+                                 if (playButton.clicked) {
+                                      playButton.clicked = false;
+                                  } else if (videoWithButton.playing) {
+                                       videoWithButton.pause();
+                                       videoWithButton.playing = false;
+                                  } else {
+                                       videoWithButton.resume();
+                                       videoWithButton.playing = true;
+                                  }
+                }
+         });
+    
+        
         /* 3. Set up trackers to handle image recognition events */
         
         /* familyTracker: 
@@ -56,7 +97,7 @@ var World = {
                 • if it's not, play video in place over image target and update flag
             When MM_ARCouple leaves field of vision
             • pause video      */
-        var inPlaceFamilyTracker = new AR.Trackable2DObject(this.tracker, "AR_MMS*", {
+      var inPlaceFamilyTracker = new AR.Trackable2DObject(this.tracker, "MM_ARC*", {
             drawables: { cam: video },
             onEnterFieldOfVision: function onEnterFieldOfVisionFn() {
                   if(!videoIsPlaying){
@@ -71,6 +112,24 @@ var World = {
                   video.pause();
             }
         });
+  
+        var videoButtonTracker = new AR.Trackable2DObject(this.tracker, "AR_MMS*", {
+               drawables: {
+                     cam: [videoWithButton, playButton]
+               },
+               onEnterFieldOfVision: function onEnterFieldOfVisionFn() {
+                     if (videoWithButton.playing) {
+                          videoWithButton.resume();
+                     }
+               },
+               onExitFieldOfVision: function onExitFieldOfVisionFn() {
+                     if (videoWithButton.playing) {
+                          videoWithButton.pause();
+                     }
+               }
+       });
+   
+        
 	},
 
 	worldLoaded: function worldLoadedFn() {
